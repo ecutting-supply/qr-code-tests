@@ -199,9 +199,9 @@ function status(d){
 }
 function csv(d){
   const q = v => /[",\n]/.test(v) ? `"${String(v).replace(/"/g,'""')}"` : v;
-  const head = ["invoice","po","po_line","part","description","spec","qty_billed","uom","unit_price","amount","qty_ordered","qty_prev_shipped","qty_backorder","backorder_est_ship"];
+  const head = ["invoice","invoice_date","due_date","po","po_line","sales_order","part","description","spec","qty_billed","uom","unit_price","amount","qty_ordered","qty_prev_shipped","qty_backorder","backorder_est_ship"];
   return [head.join(",")].concat(d.lines.map(l =>
-    [d.number,d.po,l.po_line,l.part,l.desc,l.spec,l.qty,l.uom,l.price,l.amount,l.ordered,l.prev,l.bo,l.bo_date].map(q).join(","))).join("\n");
+    [d.number,d.date,d.due,d.po,l.po_line,d.so,l.part,l.desc,l.spec,l.qty,l.uom,l.price,l.amount,l.ordered,l.prev,l.bo,l.bo_date].map(q).join(","))).join("\r\n") + "\r\n";
 }
 async function copy(text, msg){
   const t = $("#toast");
@@ -266,6 +266,7 @@ function render(d){
 
   <section>
     <div class="actions">
+      <button class="primary" id="dlcsv" type="button" hidden>Download CSV</button>
       <button class="primary" id="cpcsv" type="button">Copy lines as CSV</button>
       <button id="cpraw" type="button">Copy raw data</button>
     </div>
@@ -274,6 +275,17 @@ function render(d){
   </section>
   </div>`;
   $("#cpcsv").onclick = () => copy(csv(d), "Copied CSV. Paste into a spreadsheet or AP import.");
+  // Real file download only works when the page is top-level (e.g. novamaxa.com/q), not inside a sandboxed frame.
+  if (window.top === window.self) {
+    const dl = $("#dlcsv"); dl.hidden = false; $("#cpcsv").classList.remove("primary");
+    dl.onclick = () => {
+      const blob = new Blob(["\ufeff" + csv(d)], {type: "text/csv;charset=utf-8"});
+      const a = document.createElement("a"); a.href = URL.createObjectURL(blob);
+      a.download = `invoice_${d.number}.csv`; document.body.appendChild(a); a.click(); a.remove();
+      setTimeout(() => URL.revokeObjectURL(a.href), 2000);
+      $("#toast").textContent = `Saved invoice_${d.number}.csv`;
+    };
+  }
   $("#cpraw").onclick = () => copy(d.raw, "Copied raw payload.");
 }
 function b64(s){ return Uint8Array.from(atob(s), c => c.charCodeAt(0)); }
