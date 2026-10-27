@@ -141,8 +141,8 @@ pre{margin:10px 0 0;padding:10px;background:var(--bg);border-radius:5px;overflow
 
 <script src="nacl-fast.min.js"></script>
 <script>
-const DEMO = "AEA4OEHKZRHANMI6FAAMK5YMZSD7YCZ3EQFHC6HTW3CSY7WAPLSLMDNHY4CS3FETTZA6JAKJHPFBUDUL5CPZL3Z7EMT6YKBDCO3XXIRQA54NVLMT3NHMGMAMQ3XXTCR4YABI4G5H5XSTJDQSOQKYLQLNMFCUE5AUVUJQPSIPR6J3AQIRAISNAL5VZ2U76Z6XHHSGE5TE7CUJRMIBQ4MSHIGTSBV4IGA26BQ5DLCUAJ6F53LSNGAIAMVUDFLVH3JXLOJ7EREDWHEKP5PVLXP3ILIX3XRXQUJ725WJHFGMGYAMHZRRTTNIZUVNMM3KE2VPVCTKPWUVXK6KZNETSWVLT353UW5K5L62I3KX37ZSKJXKEEGGC4DVZHUBDN5UUV5KKWT55B4VNQBFANZLJGGPPRR6XXKNX6BXYSAL3RCVKL66JCT7ODC6RCVZO4SQROIZJOMPWQDG35GBHULH2PXTYR5KPNWJNC5OTU37GH74YV7KJLS27ELZWM3MZDRSBBOUUXSLCBFUU2Y2EIMNQH74CMIQPGLM37ADRX2TJCILCQCDNUWYGUGYTBRU6Q7TB5AFJMWEZHSFQQ6CFLKJTRUEREWQ64SL7ICIFBIDZ3OIE4PHVOLHQHAIKTRBYRAIBG7OJRCZH2OJRE3ONDKASYT52YRRAAYEMP643YHQVMM3MR4Z535AXPMJPI4FY4MEYVMFUDAJPXMC4HDBBOWQFVABREAC2EV2OCZVKA";        // signed sample: invoice 10628
-const TAMPERED = "AEA4OEHKZRHANMI6FAAMK5YMZSD7YCZ3EQFHC6HTW3CSY7WAPLSLMDNHY4CS3FETTZA6JAKJHPFBUDUL5CPZL3Z7EMT6YKBDCO3XXIRQA54NVLMT3VHNWQAQQXXXTCT5QBWJSGPPVTW4WKGQC2UTQENGQFNSO4NFVIHEM4KELNUR5HWZLWJNMCCRUSRCHWNTP47N7DDHH5F3LPCAXGUJNAXAVEIAF4QWJJFZIQVECBLO3XTEEBP6WM2ZEAYHAQNOSB5G5Q3GQ644YLFAEO4WVVR7Q23OXJHKD6TNXZSXEMXMWGJ7AAEBYH7DVHRSQP7ZEKUKVT5LPJ7GL7OCFZXGX23VUVXO7BT6M7LM3KTLJUZQZPZHY3HQZQPU42JSZLWBJ4WYF3RX7PPPYGOWXIE4A7G3NNRHEPQN5HS4CJV4EECRFJFOTLVDGV72B5LUVLSUAZLYNGA3HKTDEBB27NSJVKM6TO7OMOJR7VB3XW7W3WTN37GDL7WSOZWV5G7TRHQR4SAEGHCT26JKOEXQQHDKTRRUBDXYHA4QPB3O3ZRPDILWQMQ7FEMFZITRA4NFNDLJ7B6WB6AFSZKJRMSIBBSUEOUQPDKZQJHD25E54QEROGSPQ6NKT64B75E6IUBB6O4FRERACHN3GNL43ZUXS4LPDCKAS5T725R3AJALJ56755DIKOGLRKZCYT6J356NJI2VYAME3VMVULAIXXKC6HDDB6OYFXABJEJC2ER26KZVKI";  // same signature, due date edited afterwards
+const DEMO = "AEA6WHM6KYPH5GVXJNBBHZL2BXWWQTT2MITQOJEJJTQXOCP6BQ33GE2ZP7HOLH4T6ENLKUKH5WEHDEUWT2GBYQ2JXLDTAXBXCPLFPPCUAJ4NVLMTMFH2IMAQQ2757L7IB5MHIOVUQV7CJ2FJZEWUXRCTX6RIWJ4RCWZ2BXRG6PRW7WV25NQYY54J4ZGWAWR2XRH2PU3DFLHE6JE5CTTSJQLAJIEGQIVQCFRAQJNYWBUEMEID7WWA5KEUUBA2PKCSVILJCW5MMRBHSBCSEGO5NV3XIPJXKVHUJ7M2V7S5SOFBGLPXAAEHND7J2RXJJPDGNOKLCEWH5WX5XZ32EMWGIVB5WZRSGJBPTO34HUB7VZNZDN7DQ3HC4KKJKRVBT3O3B6JKZ2VQVALKPEJJUPZLFCQMM5KM37OQV7CXK7OVGWRB5BWNJSMFYIDEC5DVJHUBZHOCMTJJYZPLYDRLLYCCA3SGVYFR2ZVOHKE2G5DPBAATTMJLK7VI2K36YIKYGK2246VMDF2GFKG5MBJ47NRBVM66TJ7OIOIT7VJ3GXXV3WZFT7WDT7WWPYVK4PB5RZMQ2QHAPNO7HKPVQKEB33JCRVUUI3BNPYCIBA6OWZXZC6GXENFR6EKBUVFAKFNRVTM22LUK7AOR56YIJQWYGQQNRAFUEUY2YKKJVQ7SN6IPRJMHXCXHPX7MLQ6A27KBGGG7FENNCE7AVY5RGVV6TDHSGKK7BD4HHXVPKYJQAKNDQ73H4UUIQM4LLVXOUO47RTVJQXBZQTCVAWR4BO65QL7MM2BUXZNUBI2H6JCH6AB3M5FNK";        // signed sample: invoice 10628
+const TAMPERED = "AEA6WHM6KYPH5GVXJNBBHZL2BXWWQTT2MITQOJEJJTQXOCP6BQ33GE2ZP7HOLH4T6ENLKUKH5WEHDEUWT2GBYQ2JXLDTAXBXCPLFPPCUAJ4NVLMTMFH5WMAQQ2766V7YA7KOG7FRTX4GGFGYIBNNHCRQ4BV2AYMLSYJNIBCYUX57CO63WQWARMKJUCJZFM3TS734TG7TGGK6OJ4KJ3FHGUTAGERQJNASTRCIZKKCT6LM2KASUDX5KIJNCUMDAGPKRSVIL5GFLKSVISCQDLU3JPX6GU2F2R3F76IK7267GXUSINPKGMAMD7RS3XNK7UXHN2BSVUPCXD67D45R3YFAOOKV67W5QCGFMXZXMGH27NGSXCTW3TJNSJNFVHHBZI357JDIVIZ2FKV4LKNUJO43ZLFE4WHKVOI57KG3RLVPXJDNJQ5QTUEVWCEE7TRCWLOPYDTFEAOXROYRPT6LRKFQBRGNZC7NAUPO3VET3JN7INGMQB5LWJJS6VHRDWVBQVORPFKQHQI2UUGTVH7Q52JWRQXRKL2C3TMZ5APZVTN255LM32Q77IWD6E2XDX7YY7IPFHRXDUEEJ7TT6FRNGA5RVTJRUVI7AMJYBIRM7JSZ7VC2GPKNMIBYKAI5NH2I5RTQJRU4ZR6ATBLVRIRRF2FQQLRC5VECZR4UEQYW7E74A5CWEAWF4MA37YTO4BRRUCDMTAKIGGAIOA7Z2KKHWGMM7JKSJ4CPZOHI27VQTACS6KXL3HIYOGMGJTVZAO2BOX5YWX2BRE5NVJSBI6DVLIYJYGEDGZGAWGAMJCA6QD2EAVFNO";  // same signature, due date edited afterwards
 // Public signing keys by key id. Revoke by setting status: "revoked"; never delete an id.
 const KEYS = { 1: { pub: "mkqqCLe6phijwBMOGWy/2RXt/5cSij1RzC10sAaeDyc=", status: "active", note: "DEMO key, replace before production" } };
 const DOMAIN = new TextEncoder().encode("NVI1-SIG\0");
@@ -173,12 +173,14 @@ function parse(text){
   const h = rows.find(r => r[0] === "H");
   if (!h || h[1] !== "NVI1") throw new Error("This code is not a NovAmaxa invoice payload (missing NVI1 header).");
   const [ , ver, type, number, date, due, terms, ccy, po, so, account, customer, supplier,
-          subtotal, freight, tax, total, paid, balance, count] = h;
+          subtotal, freight, tax, total, paid, balance, count,
+          st_name="", st_l1="", st_l2="", st_city="", st_state="", st_zip="", st_country=""] = h;
+  const ship = {name:st_name, line1:st_l1, line2:st_l2, city:st_city, state:st_state, zip:st_zip, country:st_country};
   const lines = rows.filter(r => r[0] === "L").map(r => ({
     ln:r[1], po_line:r[2], part:r[3], desc:r[4], spec:r[5], qty:r[6], uom:r[7], price:r[8], amount:r[9],
     // optional partial-shipment fields; absent on older codes
     ordered: r[10] ?? r[6], prev: r[11] ?? "0", bo: r[12] ?? "0", bo_date: r[13] || "" }));
-  return {ver,type,number,date,due,terms,ccy,po,so,account,customer,supplier,subtotal,freight,tax,total,paid,balance,count:+count,lines,raw:text};
+  return {ship,ver,type,number,date,due,terms,ccy,po,so,account,customer,supplier,subtotal,freight,tax,total,paid,balance,count:+count,lines,raw:text};
 }
 function checks(d){
   const sum = d.lines.reduce((a,l) => a + cents(l.amount), 0);
@@ -199,9 +201,9 @@ function status(d){
 }
 function csv(d){
   const q = v => /[",\n]/.test(v) ? `"${String(v).replace(/"/g,'""')}"` : v;
-  const head = ["invoice","invoice_date","due_date","po","po_line","sales_order","part","description","spec","qty_billed","uom","unit_price","amount","qty_ordered","qty_prev_shipped","qty_backorder","backorder_est_ship"];
+  const head = ["invoice","invoice_date","due_date","po","po_line","sales_order","ship_to_name","ship_to_line1","ship_to_line2","ship_to_city","ship_to_state","ship_to_zip","ship_to_country","part","description","spec","qty_billed","uom","unit_price","amount","qty_ordered","qty_prev_shipped","qty_backorder","backorder_est_ship"];
   return [head.join(",")].concat(d.lines.map(l =>
-    [d.number,d.date,d.due,d.po,l.po_line,d.so,l.part,l.desc,l.spec,l.qty,l.uom,l.price,l.amount,l.ordered,l.prev,l.bo,l.bo_date].map(q).join(","))).join("\r\n") + "\r\n";
+    [d.number,d.date,d.due,d.po,l.po_line,d.so,d.ship.name,d.ship.line1,d.ship.line2,d.ship.city,d.ship.state,d.ship.zip,d.ship.country,l.part,l.desc,l.spec,l.qty,l.uom,l.price,l.amount,l.ordered,l.prev,l.bo,l.bo_date].map(q).join(","))).join("\r\n") + "\r\n";
 }
 async function copy(text, msg){
   const t = $("#toast");
@@ -238,6 +240,11 @@ function render(d){
     ${[["Customer PO",d.po,1],["Sales order",d.so,1],["Account",d.account,1],["Invoice date",usdate(d.date)],["Due date",usdate(d.due)],["Terms",d.terms]]
       .map(([k,v,m]) => `<div><div class="label">${k}</div><div class="v ${m?"mono":""}">${esc(v)}</div></div>`).join("")}
   </section>
+
+  ${d.ship.line1 || d.ship.city ? `<section>
+    <div class="label">Ship to</div>
+    <div class="v" style="margin-top:4px;line-height:1.5"><b>${esc(d.ship.name)}</b><br>${esc([d.ship.line1, d.ship.line2].filter(Boolean).join(", "))}<br>${esc(d.ship.city)}, ${esc(d.ship.state)} ${esc(d.ship.zip)}${d.ship.country ? " · " + esc(d.ship.country) : ""}</div>
+  </section>` : ""}
 
   <section class="lines">
     <h2 class="label">${d.lines.length} line items</h2>
