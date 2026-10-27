@@ -147,8 +147,8 @@ pre{margin:10px 0 0;padding:10px;background:var(--bg);border-radius:5px;overflow
 <script src="nacl-fast.min.js"></script>
 <script>
 const VIEWER_VERSION = "2026-10-27.3";
-const DEMO = "AEA77KQ2Y2DIA4MJGKRMRWDLCITMGBDEZV7655YPG3VCFYHWPPR7NBKRKNUAXTXQHBLO5WJ5M2GHC3ZL6E62FGV64ZIZAGFPMXXMJEFUBZ4NUXORYFHMGMAMA3QDWT6BBNSLFXJYNGH2GG3CYC5KUUOLVYJ5VCJBBYQMJQIPR7RWZEZ27VJJLJH65ISH3ETO3KIGZOSJCABNKQSAYFA6HCGKCAQQ7O7DZ56QKMVGSX2AQDC4SOXSL3K4F33BRJLVQCPGIOF4P56B6TZH5G7H5F47Q67YH6BKGIXAABFOR745E5IW4USU2QZ3RVWUVYJB6R65ZD6D4PZ6VLO2V3XV4BJVNHO2LXPAILX7U7LSIEIYFLEXPHVXCYNTCCQQYJCHTEPOHBURX2TSMMYGNOGJ5KKZSTK3HKRUW5FJAMZCWYHLV26SREX4M27GA3W6GGKVYGFBS7CB72BFQM2HVRS5NJ5JJNUVH2CFATGVYVFMX7FERMHTGCIRDOS6ILKLJO7N2YQZ4SL6NU34OFHMHDAGJRWIH5FMZFAP";        // signed sample: invoice 10628
-const TAMPERED = "AEA77KQ2Y2DIA4MJGKRMRWDLCITMGBDEZV7655YPG3VCFYHWPPR7NBKRKNUAXTXQHBLO5WJ5M2GHC3ZL6E62FGV64ZIZAGFPMXXMJEFUBZ4NUXORYFHMGMAMA3QDWT6BBNSLFXJYNGH2GG3CYC5KUUOLVYJ5VCJBBYQMJQIPR7RWZEZ27VJJLJH65ISH3ETO3KIGZOSJCABNKQSAYFA6HCGKCAUQ7O7DZ56QKMVGSX2AQDC4SOXSL3K4F33BRJLVQCPGIOF4P56B6TZH5G7H5F47Q67YH6BKGIXAABFOR745E5IW4USU2QZ3RVWUVYJB6R65ZD6D4PZ6VLO2V3XV4BJVNHO2LXPAILX7U7LSIEIYFLEXPHVXCYNTCCQQYJCHTEPOHBURX2TSMMYGNOGJ5KKZSTK3HKRUW5FJAMZCWYHLV26SREX4M27GA3W6GGKVYGFBS7CB72BFQM2HVRS5NJ5JJNUVH2CFATGVYVFMX7FERMHTGCIRDOS6ILKLJO7N2YQZ4SL6NU34OFHMHDAGJRWIH5HLJFAR";  // same signature, due date edited afterwards
+const DEMO = "AEA4SP4JUDAVIZFTCJEORDNYJYIDISXKQF6BIR7BI2EE6ILE66PJE235MX3DV2GMGB2SOGE2RPGMCFWRJZDE3SS7ZZMIZ5ECAMH3MPPZAR4NUXORYFHMGMAMA3QDWT6BBNSLFHJYNGH5KNWY2DLJM5KURDNYI5TCRABQQ4PQYPRTRW5EJ27VIJNJX45ESV6SRZVZE5J3BJBKISQIFA5KQHKRDEROIYL37S47OIBPYNBHUBAGVYUFIMTUFYLQOTBSO6AICZDXPD77QPU6J3JH57JWT6D37AYET4MGOAAC27DXJ2J2JPJI2O7KK6H52YXDD7DP5LKJP37RZY2T2NX66NUCTJQ5SDW5Z3C555NPQOFYUEDE3HSK3J4ZZVRIEMUQDRSXVDA3I35J52WMDCWDCBVGPJLFNT6KNNXJKIDHIRWB25GXUUJV6TGQJQG5VRZT6LIYUGKCIHQYEWBTIWWGLVVHVZFGSXPIIVCM2VDY2ZPWKJG2PGMMQCC5F4QWTZW5O3VRBTZEX63JWY4KOYOGAMTD4QP5PZMTYI";        // signed sample: invoice 10628
+const TAMPERED = "AEA4SP4JUDAVIZFTCJEORDNYJYIDISXKQF6BIR7BI2EE6ILE66PJE235MX3DV2GMGB2SOGE2RPGMCFWRJZDE3SS7ZZMIZ5ECAMH3MPPZAR4NUXORYFHMGMAMA3QDWT6BBNSLFHJYNGH5KNWY2DLJM5KURDNYI5TCRABQQ4PQYPRTRW5EJ27VIJNJX45ESV6SRZVZE5J3BJBKISQIFA5KQHKRDEROKYL37S47OIBPYNBHUBAGVYUFIMTUFYLQOTBSO6AICZDXPD77QPU6J3JH57JWT6D37AYET4MGOAAC27DXJ2J2JPJI2O7KK6H52YXDD7DP5LKJP37RZY2T2NX66NUCTJQ5SDW5Z3C555NPQOFYUEDE3HSK3J4ZZVRIEMUQDRSXVDA3I35J52WMDCWDCBVGPJLFNT6KNNXJKIDHIRWB25GXUUJV6TGQJQG5VRZT6LIYUGKCIHQYEWBTIWWGLVVHVZFGSXPIIVCM2VDY2ZPWKJG2PGMMQCC5F4QWTZW5O3VRBTZEX63JWY4KOYOGAMTD4QP5XTMTYQ";  // same signature, due date edited afterwards
 // Public signing keys by key id. Revoke by setting status: "revoked"; never delete an id.
 const KEYS = { 1: { pub: "mkqqCLe6phijwBMOGWy/2RXt/5cSij1RzC10sAaeDyc=", status: "active", note: "DEMO key, replace before production" } };
 const DOMAIN = new TextEncoder().encode("NVI1-SIG\0");
@@ -298,8 +298,8 @@ function render(d){
 
   ${d.csvsha ? `<section class="csvchk">
     <div class="label">${d.detail ? "Full detail verified" : "Descriptions, specs and ship-to"}</div>
-    ${d.detail ? `<p class="ok-line"><b>✓</b> Loaded from the CSV attached to the invoice PDF. Its fingerprint matches this signed code.</p>`
-      : `<p>Kept out of the QR to keep it small and scannable. They're in the CSV attached to the invoice PDF (paperclip next to the QR). Load that file here to check it is the genuine one and fill in the detail.</p>
+    ${d.detail ? `<p class="ok-line"><b>✓</b> This CSV matches the signed code exactly. Download or copy it below.</p>`
+      : `<p>The full data file is attached inside the invoice PDF ("CSV attached" next to the QR). Open the PDF in Adobe Acrobat Reader or Firefox to save it, or use the copy that came with the invoice email. Load it here to confirm it is genuine and show the full detail.</p>
     <label class="file"><input id="csvfile" type="file" accept=".csv,text/csv"><span>Check attached CSV</span></label>
     <div class="err" id="csverr" role="status"></div>`}
   </section>` : ""}
@@ -317,15 +317,16 @@ function render(d){
 
   <section>
     <div class="actions">
-      <button class="primary" id="dlcsv" type="button" hidden>Download ${d.detail ? "CSV" : "summary CSV"}</button>
-      <button class="primary" id="cpcsv" type="button">Copy ${d.detail ? "lines" : "summary"} as CSV</button>
+      ${d.csvBytes ? `<button class="primary" id="dlcsv" type="button" hidden>Download CSV</button>
+      <button ${d.csvBytes ? "" : 'class="primary"'} id="cpcsv" type="button">Copy CSV</button>` : ""}
       <button id="cpraw" type="button">Copy raw data</button>
     </div>
     <div class="toast" id="toast" role="status"></div>
     <details><summary class="label" style="margin-top:6px">Raw payload (${esc(d.ver)})</summary><pre id="rawpre">${esc(d.raw)}</pre></details>
   </section>
   </div>`;
-  $("#cpcsv").onclick = () => copy(csv(d), "Copied CSV. Paste into a spreadsheet or AP import.");
+  const csvText = () => new TextDecoder("utf-8").decode(d.csvBytes).replace(/^\ufeff/, "");
+  if ($("#cpcsv")) $("#cpcsv").onclick = () => copy(csvText(), "Copied the verified CSV. Paste into a spreadsheet or AP import.");
   const fi = $("#csvfile");
   if (fi) fi.onchange = async () => {
     const f = fi.files[0]; if (!f) return;
@@ -340,13 +341,14 @@ function render(d){
               state:r0.ship_to_state||"", zip:r0.ship_to_zip||"", country:r0.ship_to_country||""};
     d.lines.forEach((l, i) => { const m = rowsIn.find(r => r.po_line === l.po_line && r.part === l.part) || rowsIn[i] || {};
                                 l.desc = m.description || ""; l.spec = m.spec || ""; });
-    d.detail = true; render(d); scrollTo({top:0, behavior:"smooth"});
+    d.detail = true; d.csvBytes = bytes; render(d); scrollTo({top:0, behavior:"smooth"});
   };
   // Real file download only works when the page is top-level (e.g. novamaxa.com/q), not inside a sandboxed frame.
-  if (window.top === window.self) {
+  if (d.csvBytes && window.top === window.self) {
     const dl = $("#dlcsv"); dl.hidden = false; $("#cpcsv").classList.remove("primary");
     dl.onclick = () => {
-      const blob = new Blob(["\ufeff" + csv(d)], {type: "text/csv;charset=utf-8"});
+      // Saves the exact verified bytes, so the file matches the signed fingerprint.
+      const blob = new Blob([d.csvBytes], {type: "text/csv;charset=utf-8"});
       const a = document.createElement("a"); a.href = URL.createObjectURL(blob);
       a.download = `invoice_${d.number}.csv`; document.body.appendChild(a); a.click(); a.remove();
       setTimeout(() => URL.revokeObjectURL(a.href), 2000);
