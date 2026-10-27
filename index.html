@@ -91,6 +91,11 @@ section{background:var(--card);border:1px solid var(--rule);border-radius:6px;pa
 
 .pship{font-size:13px;color:var(--ink);background:var(--warn-bg);border-left:4px solid var(--warn);padding:8px 10px;border-radius:3px;margin:4px 0 6px}
 .ln .bo{grid-column:1/-1;color:var(--warn);font-size:13px;font-weight:600}
+.csvchk p{margin:6px 0 10px;font-size:13px;color:var(--ink-2)}
+.csvchk .ok-line b{color:var(--ok)}
+.file{position:relative;display:inline-flex;align-items:center;gap:8px;font:600 14px var(--sans);padding:9px 14px;border-radius:5px;border:1px solid var(--rule);background:var(--card);color:var(--ink);cursor:pointer}
+.file input{position:absolute;opacity:0;width:1px;height:1px}
+.file:focus-within{outline:2px solid var(--brand-2);outline-offset:2px}
 .tot table{width:100%;border-collapse:collapse}
 .tot td{padding:4px 0}
 .tot td:first-child{color:var(--ink-2)}
@@ -141,8 +146,8 @@ pre{margin:10px 0 0;padding:10px;background:var(--bg);border-radius:5px;overflow
 
 <script src="nacl-fast.min.js"></script>
 <script>
-const DEMO = "AEA6WHM6KYPH5GVXJNBBHZL2BXWWQTT2MITQOJEJJTQXOCP6BQ33GE2ZP7HOLH4T6ENLKUKH5WEHDEUWT2GBYQ2JXLDTAXBXCPLFPPCUAJ4NVLMTMFH2IMAQQ2757L7IB5MHIOVUQV7CJ2FJZEWUXRCTX6RIWJ4RCWZ2BXRG6PRW7WV25NQYY54J4ZGWAWR2XRH2PU3DFLHE6JE5CTTSJQLAJIEGQIVQCFRAQJNYWBUEMEID7WWA5KEUUBA2PKCSVILJCW5MMRBHSBCSEGO5NV3XIPJXKVHUJ7M2V7S5SOFBGLPXAAEHND7J2RXJJPDGNOKLCEWH5WX5XZ32EMWGIVB5WZRSGJBPTO34HUB7VZNZDN7DQ3HC4KKJKRVBT3O3B6JKZ2VQVALKPEJJUPZLFCQMM5KM37OQV7CXK7OVGWRB5BWNJSMFYIDEC5DVJHUBZHOCMTJJYZPLYDRLLYCCA3SGVYFR2ZVOHKE2G5DPBAATTMJLK7VI2K36YIKYGK2246VMDF2GFKG5MBJ47NRBVM66TJ7OIOIT7VJ3GXXV3WZFT7WDT7WWPYVK4PB5RZMQ2QHAPNO7HKPVQKEB33JCRVUUI3BNPYCIBA6OWZXZC6GXENFR6EKBUVFAKFNRVTM22LUK7AOR56YIJQWYGQQNRAFUEUY2YKKJVQ7SN6IPRJMHXCXHPX7MLQ6A27KBGGG7FENNCE7AVY5RGVV6TDHSGKK7BD4HHXVPKYJQAKNDQ73H4UUIQM4LLVXOUO47RTVJQXBZQTCVAWR4BO65QL7MM2BUXZNUBI2H6JCH6AB3M5FNK";        // signed sample: invoice 10628
-const TAMPERED = "AEA6WHM6KYPH5GVXJNBBHZL2BXWWQTT2MITQOJEJJTQXOCP6BQ33GE2ZP7HOLH4T6ENLKUKH5WEHDEUWT2GBYQ2JXLDTAXBXCPLFPPCUAJ4NVLMTMFH5WMAQQ2766V7YA7KOG7FRTX4GGFGYIBNNHCRQ4BV2AYMLSYJNIBCYUX57CO63WQWARMKJUCJZFM3TS734TG7TGGK6OJ4KJ3FHGUTAGERQJNASTRCIZKKCT6LM2KASUDX5KIJNCUMDAGPKRSVIL5GFLKSVISCQDLU3JPX6GU2F2R3F76IK7267GXUSINPKGMAMD7RS3XNK7UXHN2BSVUPCXD67D45R3YFAOOKV67W5QCGFMXZXMGH27NGSXCTW3TJNSJNFVHHBZI357JDIVIZ2FKV4LKNUJO43ZLFE4WHKVOI57KG3RLVPXJDNJQ5QTUEVWCEE7TRCWLOPYDTFEAOXROYRPT6LRKFQBRGNZC7NAUPO3VET3JN7INGMQB5LWJJS6VHRDWVBQVORPFKQHQI2UUGTVH7Q52JWRQXRKL2C3TMZ5APZVTN255LM32Q77IWD6E2XDX7YY7IPFHRXDUEEJ7TT6FRNGA5RVTJRUVI7AMJYBIRM7JSZ7VC2GPKNMIBYKAI5NH2I5RTQJRU4ZR6ATBLVRIRRF2FQQLRC5VECZR4UEQYW7E74A5CWEAWF4MA37YTO4BRRUCDMTAKIGGAIOA7Z2KKHWGMM7JKSJ4CPZOHI27VQTACS6KXL3HIYOGMGJTVZAO2BOX5YWX2BRE5NVJSBI6DVLIYJYGEDGZGAWGAMJCA6QD2EAVFNO";  // same signature, due date edited afterwards
+const DEMO = "AEA77KQ2Y2DIA4MJGKRMRWDLCITMGBDEZV7655YPG3VCFYHWPPR7NBKRKNUAXTXQHBLO5WJ5M2GHC3ZL6E62FGV64ZIZAGFPMXXMJEFUBZ4NUXORYFHMGMAMA3QDWT6BBNSLFXJYNGH2GG3CYC5KUUOLVYJ5VCJBBYQMJQIPR7RWZEZ27VJJLJH65ISH3ETO3KIGZOSJCABNKQSAYFA6HCGKCAQQ7O7DZ56QKMVGSX2AQDC4SOXSL3K4F33BRJLVQCPGIOF4P56B6TZH5G7H5F47Q67YH6BKGIXAABFOR745E5IW4USU2QZ3RVWUVYJB6R65ZD6D4PZ6VLO2V3XV4BJVNHO2LXPAILX7U7LSIEIYFLEXPHVXCYNTCCQQYJCHTEPOHBURX2TSMMYGNOGJ5KKZSTK3HKRUW5FJAMZCWYHLV26SREX4M27GA3W6GGKVYGFBS7CB72BFQM2HVRS5NJ5JJNUVH2CFATGVYVFMX7FERMHTGCIRDOS6ILKLJO7N2YQZ4SL6NU34OFHMHDAGJRWIH5FMZFAP";        // signed sample: invoice 10628
+const TAMPERED = "AEA77KQ2Y2DIA4MJGKRMRWDLCITMGBDEZV7655YPG3VCFYHWPPR7NBKRKNUAXTXQHBLO5WJ5M2GHC3ZL6E62FGV64ZIZAGFPMXXMJEFUBZ4NUXORYFHMGMAMA3QDWT6BBNSLFXJYNGH2GG3CYC5KUUOLVYJ5VCJBBYQMJQIPR7RWZEZ27VJJLJH65ISH3ETO3KIGZOSJCABNKQSAYFA6HCGKCAUQ7O7DZ56QKMVGSX2AQDC4SOXSL3K4F33BRJLVQCPGIOF4P56B6TZH5G7H5F47Q67YH6BKGIXAABFOR745E5IW4USU2QZ3RVWUVYJB6R65ZD6D4PZ6VLO2V3XV4BJVNHO2LXPAILX7U7LSIEIYFLEXPHVXCYNTCCQQYJCHTEPOHBURX2TSMMYGNOGJ5KKZSTK3HKRUW5FJAMZCWYHLV26SREX4M27GA3W6GGKVYGFBS7CB72BFQM2HVRS5NJ5JJNUVH2CFATGVYVFMX7FERMHTGCIRDOS6ILKLJO7N2YQZ4SL6NU34OFHMHDAGJRWIH5HLJFAR";  // same signature, due date edited afterwards
 // Public signing keys by key id. Revoke by setting status: "revoked"; never delete an id.
 const KEYS = { 1: { pub: "mkqqCLe6phijwBMOGWy/2RXt/5cSij1RzC10sAaeDyc=", status: "active", note: "DEMO key, replace before production" } };
 const DOMAIN = new TextEncoder().encode("NVI1-SIG\0");
@@ -171,16 +176,46 @@ function blobFrom(input){
 function parse(text){
   const rows = text.split("\n").map(r => r.split("|"));
   const h = rows.find(r => r[0] === "H");
-  if (!h || h[1] !== "NVI1") throw new Error("This code is not a NovAmaxa invoice payload (missing NVI1 header).");
+  if (!h || !["NVI1","NVI2"].includes(h[1])) throw new Error("This code is not a NovAmaxa invoice payload.");
   const [ , ver, type, number, date, due, terms, ccy, po, so, account, customer, supplier,
-          subtotal, freight, tax, total, paid, balance, count,
-          st_name="", st_l1="", st_l2="", st_city="", st_state="", st_zip="", st_country=""] = h;
-  const ship = {name:st_name, line1:st_l1, line2:st_l2, city:st_city, state:st_state, zip:st_zip, country:st_country};
-  const lines = rows.filter(r => r[0] === "L").map(r => ({
-    ln:r[1], po_line:r[2], part:r[3], desc:r[4], spec:r[5], qty:r[6], uom:r[7], price:r[8], amount:r[9],
-    // optional partial-shipment fields; absent on older codes
-    ordered: r[10] ?? r[6], prev: r[11] ?? "0", bo: r[12] ?? "0", bo_date: r[13] || "" }));
-  return {ship,ver,type,number,date,due,terms,ccy,po,so,account,customer,supplier,subtotal,freight,tax,total,paid,balance,count:+count,lines,raw:text};
+          subtotal, freight, tax, total, paid, balance, count] = h;
+  const blankShip = {name:"", line1:"", line2:"", city:"", state:"", zip:"", country:""};
+  let ship = blankShip, csvsha = "", lines;
+  if (ver === "NVI2") {
+    // Compact: identifiers, quantities, money. Descriptions/specs/ship-to live in the attached CSV.
+    csvsha = h[20] || "";
+    lines = rows.filter(r => r[0] === "L").map(r => ({
+      ln:r[1], po_line:r[2], part:r[3], desc:"", spec:"", qty:r[4], uom:r[5], price:r[6], amount:r[7],
+      ordered:r[8] ?? r[4], prev:r[9] ?? "0", bo:r[10] ?? "0", bo_date:r[11] || "" }));
+  } else {
+    const [st_name="", st_l1="", st_l2="", st_city="", st_state="", st_zip="", st_country=""] = h.slice(20);
+    ship = {name:st_name, line1:st_l1, line2:st_l2, city:st_city, state:st_state, zip:st_zip, country:st_country};
+    lines = rows.filter(r => r[0] === "L").map(r => ({
+      ln:r[1], po_line:r[2], part:r[3], desc:r[4], spec:r[5], qty:r[6], uom:r[7], price:r[8], amount:r[9],
+      ordered: r[10] ?? r[6], prev: r[11] ?? "0", bo: r[12] ?? "0", bo_date: r[13] || "" }));
+  }
+  return {ship,csvsha,detail:ver==="NVI1",ver,type,number,date,due,terms,ccy,po,so,account,customer,supplier,subtotal,freight,tax,total,paid,balance,count:+count,lines,raw:text};
+}
+// Minimal RFC 4180 reader for the attached CSV
+function readCsv(text){
+  const out = []; let row = [], f = "", q = false;
+  for (let i = 0; i < text.length; i++){
+    const c = text[i];
+    if (q){ if (c === '"'){ if (text[i+1] === '"'){ f += '"'; i++; } else q = false; } else f += c; }
+    else if (c === '"') q = true;
+    else if (c === ","){ row.push(f); f = ""; }
+    else if (c === "\n" || c === "\r"){ if (c === "\r" && text[i+1] === "\n") i++; row.push(f); out.push(row); row = []; f = ""; }
+    else f += c;
+  }
+  if (f || row.length){ row.push(f); out.push(row); }
+  const [head, ...body] = out; return body.filter(r => r.length > 1).map(r => Object.fromEntries(head.map((k,i) => [k, r[i] ?? ""])));
+}
+async function digest128(bytes){
+  const h = new Uint8Array(await crypto.subtle.digest("SHA-256", bytes)).slice(0, 16);
+  const A = "ABCDEFGHIJKLMNOPQRSTUVWXYZ234567"; let bits = 0, v = 0, o = "";
+  for (const b of h){ v = (v << 8) | b; bits += 8; while (bits >= 5){ o += A[(v >>> (bits - 5)) & 31]; bits -= 5; } }
+  if (bits) o += A[(v << (5 - bits)) & 31];
+  return o;
 }
 function checks(d){
   const sum = d.lines.reduce((a,l) => a + cents(l.amount), 0);
@@ -200,7 +235,7 @@ function status(d){
   return ["OPEN","Open"];
 }
 function csv(d){
-  const q = v => /[",\n]/.test(v) ? `"${String(v).replace(/"/g,'""')}"` : v;
+  const q = v => /[",\n\r]/.test(v ?? "") ? `"${String(v).replace(/"/g,'""')}"` : (v ?? "");
   const head = ["invoice","invoice_date","due_date","po","po_line","sales_order","ship_to_name","ship_to_line1","ship_to_line2","ship_to_city","ship_to_state","ship_to_zip","ship_to_country","part","description","spec","qty_billed","uom","unit_price","amount","qty_ordered","qty_prev_shipped","qty_backorder","backorder_est_ship"];
   return [head.join(",")].concat(d.lines.map(l =>
     [d.number,d.date,d.due,d.po,l.po_line,d.so,d.ship.name,d.ship.line1,d.ship.line2,d.ship.city,d.ship.state,d.ship.zip,d.ship.country,l.part,l.desc,l.spec,l.qty,l.uom,l.price,l.amount,l.ordered,l.prev,l.bo,l.bo_date].map(q).join(","))).join("\r\n") + "\r\n";
@@ -253,12 +288,20 @@ function render(d){
       <div class="ln">
         <div class="pn">${esc(l.part)}${l.po_line ? `<span class="po">PO ln ${esc(l.po_line)}</span>` : ""}</div>
         <div class="amt num">${fmt(l.amount)}</div>
-        <div class="ds">${esc(l.desc)}</div>
+        ${l.desc ? `<div class="ds">${esc(l.desc)}</div>` : ""}
         ${l.spec ? `<div class="sp">${esc(l.spec)}</div>` : ""}
         <div class="math num" style="text-align:left">${+l.ordered !== +l.qty || +l.prev ? `${esc(l.qty)} of ${esc(l.ordered)} ${esc(l.uom)} billed` : `${esc(l.qty)} ${esc(l.uom)}`} × ${fmt(l.price)}</div>
         ${+l.bo ? `<div class="bo">${esc(l.bo)} on backorder${l.bo_date ? ` · est. ship ${usdate(l.bo_date)}` : ""}</div>` : ""}
       </div>`).join("")}</div>
   </section>
+
+  ${d.csvsha ? `<section class="csvchk">
+    <div class="label">${d.detail ? "Full detail verified" : "Descriptions, specs and ship-to"}</div>
+    ${d.detail ? `<p class="ok-line"><b>✓</b> Loaded from the CSV attached to the invoice PDF. Its fingerprint matches this signed code.</p>`
+      : `<p>Kept out of the QR to keep it small and scannable. They're in the CSV attached to the invoice PDF (paperclip next to the QR). Load that file here to check it is the genuine one and fill in the detail.</p>
+    <label class="file"><input id="csvfile" type="file" accept=".csv,text/csv"><span>Check attached CSV</span></label>
+    <div class="err" id="csverr" role="status"></div>`}
+  </section>` : ""}
 
   <section class="tot">
     <table>
@@ -273,8 +316,8 @@ function render(d){
 
   <section>
     <div class="actions">
-      <button class="primary" id="dlcsv" type="button" hidden>Download CSV</button>
-      <button class="primary" id="cpcsv" type="button">Copy lines as CSV</button>
+      <button class="primary" id="dlcsv" type="button" hidden>Download ${d.detail ? "CSV" : "summary CSV"}</button>
+      <button class="primary" id="cpcsv" type="button">Copy ${d.detail ? "lines" : "summary"} as CSV</button>
       <button id="cpraw" type="button">Copy raw data</button>
     </div>
     <div class="toast" id="toast" role="status"></div>
@@ -282,6 +325,22 @@ function render(d){
   </section>
   </div>`;
   $("#cpcsv").onclick = () => copy(csv(d), "Copied CSV. Paste into a spreadsheet or AP import.");
+  const fi = $("#csvfile");
+  if (fi) fi.onchange = async () => {
+    const f = fi.files[0]; if (!f) return;
+    const bytes = new Uint8Array(await f.arrayBuffer());
+    if (await digest128(bytes) !== d.csvsha){
+      $("#csverr").textContent = "This CSV does not match the signed invoice. It was edited, or it belongs to a different invoice. Do not use it.";
+      return;
+    }
+    const rowsIn = readCsv(new TextDecoder("utf-8").decode(bytes).replace(/^\ufeff/, ""));
+    const r0 = rowsIn[0] || {};
+    d.ship = {name:r0.ship_to_name||"", line1:r0.ship_to_line1||"", line2:r0.ship_to_line2||"", city:r0.ship_to_city||"",
+              state:r0.ship_to_state||"", zip:r0.ship_to_zip||"", country:r0.ship_to_country||""};
+    d.lines.forEach((l, i) => { const m = rowsIn.find(r => r.po_line === l.po_line && r.part === l.part) || rowsIn[i] || {};
+                                l.desc = m.description || ""; l.spec = m.spec || ""; });
+    d.detail = true; render(d); scrollTo({top:0, behavior:"smooth"});
+  };
   // Real file download only works when the page is top-level (e.g. novamaxa.com/q), not inside a sandboxed frame.
   if (window.top === window.self) {
     const dl = $("#dlcsv"); dl.hidden = false; $("#cpcsv").classList.remove("primary");
