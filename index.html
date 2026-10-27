@@ -146,9 +146,9 @@ pre{margin:10px 0 0;padding:10px;background:var(--bg);border-radius:5px;overflow
 
 <script src="nacl-fast.min.js"></script>
 <script>
-const VIEWER_VERSION = "2026-10-27.6";
-const DEMO = "AEAWHQMQWDMI65RAMORF2EHF6VUAJKLPEFGYXUX2BO246KJE43VFIB2QOUFNYGSV5LYS2R7QA6HBCCVLFYKOE4ZNWL7JSAF3S7YTTI3PBN4NUXORYFVMGMAMA3QPXHTCF7QCEKMWTUOEGW3IUFGUFUTG5WYYZHWWWHB4NWCBB47VS3QKFE7QJW6RC7M44RU2OFF3E3KGIEEFICQBAUDZKI6KIOCDI3FOH6XQLSDRLBEYPQGAEX4VFBWWUVRI6UMWB3IJH5EX66H6727NE3G5O375PH43XCBPELRQEQHA6GMC6PLGKHVP5PA5PW3TTVNLW7QXYXGHEKHIO7RXDZVOSXTWQKNGDXIMNXXUFZ522PQIEMQELHLWT43RMGZRAIIPERCZSHXERGI35JZKGEDGXDM6VFNOJVN3FI2M6SUQCMRLMDV257OISJ7DGVZYH5XRQSFGBRIMHYRT6IOWZQIWXGPVVHFFYWTFHKE2BGMLQL2WOGIJOYPCMMSCR5FYRGTFXPPTXRB3JGX63ZUYQIOQPGGMDD4QP2FHSTXQ";        // signed sample: invoice 10628
-const TAMPERED = "AEAWHQMQWDMI65RAMORF2EHF6VUAJKLPEFGYXUX2BO246KJE43VFIB2QOUFNYGSV5LYS2R7QA6HBCCVLFYKOE4ZNWL7JSAF3S7YTTI3PBN4NUXORYFVMGMAMA3QPXHTCF7QCEKMWTUOEGW3IUFGUFUTG5WYYZHWWWHB4NWCBB47VS3QKFE7QJW6RC7M44RU2OFF3E3KGIEEFICQBAUDZKI6KIOSDI3FOH6XQLSDRLBEYPQGAEX4VFBWWUVRI6UMWB3IJH5EX66H6727NE3G5O375PH43XCBPELRQEQHA6GMC6PLGKHVP5PA5PW3TTVNLW7QXYXGHEKHIO7RXDZVOSXTWQKNGDXIMNXXUFZ522PQIEMQELHLWT43RMGZRAIIPERCZSHXERGI35JZKGEDGXDM6VFNOJVN3FI2M6SUQCMRLMDV257OISJ7DGVZYH5XRQSFGBRIMHYRT6IOWZQIWXGPVVHFFYWTFHKE2BGMLQL2WOGIJOYPCMMSCR5FYRGTFXPPTXRB3JGX63ZUYQIOQPGGMDD4QP3ETSTYQ";  // same signature, due date edited afterwards
+const VIEWER_VERSION = "2026-10-27.7";
+const DEMO = "AEA2JOSZ2K4QGAVL3UGJMDFJIYGHF237W7WG5MLVNXGCWSLKIZBDI2C33CNYURZS7CPRYP7C6IZ7FQJQFYDDVLO3YLXJ3BB3FFYYSK3AAF4NUXMRZ5XMEMAMY3XXXCV5ICIO3RCJPOGCQGWVUBKC3NHURAIKOMPNWBU5VQIPX76ADJFCJ6FBZR57HCP3HFTGVBE6UZQQARFYKEEQKVICVIQ4ELCLBOP4XRVJAQ27JGF4BQAFTFBPVHMKYUDJ2LAVUAQ6STXHR7X4X5JKZXL277Z47WO4I2GHXAABA6BM6PKGHZ6EO5JT3GDWPX2NLWCPQ6K5G3WYO6NWD35FDWS2G57C5EYPUSNXJVOXK33DKWXUOYV7PXMQQBXVVOTN65OKW2VD35WKQYVRCZHFUMY3OSB35MQAOEQVWBQPECNDOBHGLRAY2KZ5AMEVROOL2UJ25CMRFZAICGTQ5QKT53CHPRQEZUMUZF2HJDNVJTDAGJSO4EAHZUQQ4ZNJJ5M6JURSUN34EBWNBHG6CIYTMKJR6JSKBA6YNYECS2562VRB32IHRHBGY5SJGHLAJJGEF7QBDRCZ2BQ";        // signed sample: invoice 10628
+const TAMPERED = "AEA2JOSZ2K4QGAVL3UGJMDFJIYGHF237W7WG5MLVNXGCWSLKIZBDI2C33CNYURZS7CPRYP7C6IZ7FQJQFYDDVLO3YLXJ3BB3FFYYSK3AAF4NUXMRZ5XMEMAMY3XXXCV5ICIO3RCJPOGCQGWVUBKC3NHURAIKOMPNWBU5VQIPX76ADJFCJ6FBZR57HCP3HFTGVBE6UZQQARFYKEEQKVICVIQ4ELC3BOP4XRVJAQ27JGF4BQAFTFBPVHMKYUDJ2LAVUAQ6STXHR7X4X5JKZXL277Z47WO4I2GHXAABA6BM6PKGHZ6EO5JT3GDWPX2NLWCPQ6K5G3WYO6NWD35FDWS2G57C5EYPUSNXJVOXK33DKWXUOYV7PXMQQBXVVOTN65OKW2VD35WKQYVRCZHFUMY3OSB35MQAOEQVWBQPECNDOBHGLRAY2KZ5AMEVROOL2UJ25CMRFZAICGTQ5QKT53CHPRQEZUMUZF2HJDNVJTDAGJSO4EAHZUQQ4ZNJJ5M6JURSUN34EBWNBHG6CIYTMKJR6JSKBA6YNYECS2562VRB32IHRHBGY5SJGHLAJJGEF7QBEBUZ2CA";  // same signature, due date edited afterwards
 // Public signing keys by key id. Revoke by setting status: "revoked"; never delete an id.
 const KEYS = { 1: { pub: "mkqqCLe6phijwBMOGWy/2RXt/5cSij1RzC10sAaeDyc=", status: "active", note: "DEMO key, replace before production" } };
 const DOMAIN = new TextEncoder().encode("NVI1-SIG\0");
@@ -181,11 +181,12 @@ function parse(text){
   const [ , ver, type, number, date, due, terms, ccy, po, so, account, customer, supplier,
           subtotal, freight, tax, total, paid, balance, count] = h;
   const blankShip = {name:"", line1:"", line2:"", city:"", state:"", zip:"", country:""};
-  let ship = blankShip, csvsha = "", channels = "", lines;
+  let ship = blankShip, csvsha = "", channels = "", csvtok = "", lines;
   if (ver === "NVI2") {
     // Compact: identifiers, quantities, money. Descriptions/specs/ship-to live in the attached CSV.
     csvsha = h[20] || "";
     channels = h[21] ?? "P";
+    csvtok = h[22] || "";
     lines = rows.filter(r => r[0] === "L").map(r => ({
       ln:r[1], po_line:r[2], part:r[3], desc:"", spec:"", qty:r[4], uom:r[5], price:r[6], amount:r[7],
       ordered:r[8] ?? r[4], prev:r[9] ?? "0", bo:r[10] ?? "0", bo_date:r[11] || "" }));
@@ -196,7 +197,7 @@ function parse(text){
       ln:r[1], po_line:r[2], part:r[3], desc:r[4], spec:r[5], qty:r[6], uom:r[7], price:r[8], amount:r[9],
       ordered: r[10] ?? r[6], prev: r[11] ?? "0", bo: r[12] ?? "0", bo_date: r[13] || "" }));
   }
-  return {ship,csvsha,channels,detail:ver==="NVI1",ver,type,number,date,due,terms,ccy,po,so,account,customer,supplier,subtotal,freight,tax,total,paid,balance,count:+count,lines,raw:text};
+  return {ship,csvsha,channels,csvtok,detail:ver==="NVI1",ver,type,number,date,due,terms,ccy,po,so,account,customer,supplier,subtotal,freight,tax,total,paid,balance,count:+count,lines,raw:text};
 }
 // Minimal RFC 4180 reader for the attached CSV
 function readCsv(text){
@@ -247,6 +248,26 @@ async function copy(text, msg){
   try { await navigator.clipboard.writeText(text); t.textContent = msg; }
   catch { $("#rawpre").closest("details").open = true; const r = document.createRange(); r.selectNodeContents($("#rawpre"));
           getSelection().removeAllRanges(); getSelection().addRange(r); t.textContent = "Copy blocked here. Raw data is selected below."; }
+}
+async function applyCsv(d, bytes){
+  if (await digest128(bytes) !== d.csvsha) return false;
+    const rowsIn = readCsv(new TextDecoder("utf-8").decode(bytes).replace(/^\ufeff/, ""));
+  const r0 = rowsIn[0] || {};
+  d.ship = {name:r0.ship_to_name||"", line1:r0.ship_to_line1||"", line2:r0.ship_to_line2||"", city:r0.ship_to_city||"",
+            state:r0.ship_to_state||"", zip:r0.ship_to_zip||"", country:r0.ship_to_country||""};
+  d.lines.forEach((l, i) => { const m = rowsIn.find(r => r.po_line === l.po_line && r.part === l.part) || rowsIn[i] || {};
+                              l.desc = m.description || ""; l.spec = m.spec || ""; });
+  d.detail = true; d.csvBytes = bytes; render(d);
+  return true;
+}
+// Fetch the published CSV named in the code (unguessable token), verify it against the signed fingerprint.
+async function autoCsv(d){
+  if (!d.csvtok || d.detail || !d.trust.ok) return;
+  try {
+    const r = await fetch(`d/${d.csvtok}.csv`, {cache: "no-store"});
+    if (!r.ok) return;
+    await applyCsv(d, new Uint8Array(await r.arrayBuffer()));
+  } catch(e) { /* offline or not hosted: the page still works from the code alone */ }
 }
 function render(d){
   const [sk, sl] = status(d); const ck = checks(d); const allOk = ck.every(c => c[0]);
@@ -334,17 +355,12 @@ function render(d){
   if (fi) fi.onchange = async () => {
     const f = fi.files[0]; if (!f) return;
     const bytes = new Uint8Array(await f.arrayBuffer());
-    if (await digest128(bytes) !== d.csvsha){
+    if (!(await applyCsv(d, bytes))){
       $("#csverr").textContent = "That file doesn't match this invoice. It was changed, or it's for a different invoice. If you opened and saved it in Excel, that changes the file: use the original from the email or PDF.";
       return;
     }
-    const rowsIn = readCsv(new TextDecoder("utf-8").decode(bytes).replace(/^\ufeff/, ""));
-    const r0 = rowsIn[0] || {};
-    d.ship = {name:r0.ship_to_name||"", line1:r0.ship_to_line1||"", line2:r0.ship_to_line2||"", city:r0.ship_to_city||"",
-              state:r0.ship_to_state||"", zip:r0.ship_to_zip||"", country:r0.ship_to_country||""};
-    d.lines.forEach((l, i) => { const m = rowsIn.find(r => r.po_line === l.po_line && r.part === l.part) || rowsIn[i] || {};
-                                l.desc = m.description || ""; l.spec = m.spec || ""; });
-    d.detail = true; d.csvBytes = bytes; render(d); scrollTo({top:0, behavior:"smooth"});
+    scrollTo({top:0, behavior:"smooth"});
+
   };
   // Real file download only works when the page is top-level (e.g. novamaxa.com/q), not inside a sandboxed frame.
   if (d.csvBytes && window.top === window.self) {
@@ -388,6 +404,7 @@ async function load(blob, fromQr){
   const {text, trust} = await open_(blob);
   const d = parse(text); d.trust = trust;
   render(d);
+  autoCsv(d);
   const s = $("#src"); s.className = "src " + (fromQr ? "qr" : "demo");
   s.textContent = fromQr ? "Decoded from scan" : "Sample data · invoice 10628";
   if (!trust.ok) { s.className = "src demo"; }
