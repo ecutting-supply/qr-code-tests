@@ -146,9 +146,9 @@ pre{margin:10px 0 0;padding:10px;background:var(--bg);border-radius:5px;overflow
 
 <script src="nacl-fast.min.js"></script>
 <script>
-const VIEWER_VERSION = "2026-10-27.5";
-const DEMO = "AEA4SP4JUDAVIZFTCJEORDNYJYIDISXKQF6BIR7BI2EE6ILE66PJE235MX3DV2GMGB2SOGE2RPGMCFWRJZDE3SS7ZZMIZ5ECAMH3MPPZAR4NUXORYFHMGMAMA3QDWT6BBNSLFHJYNGH5KNWY2DLJM5KURDNYI5TCRABQQ4PQYPRTRW5EJ27VIJNJX45ESV6SRZVZE5J3BJBKISQIFA5KQHKRDEROIYL37S47OIBPYNBHUBAGVYUFIMTUFYLQOTBSO6AICZDXPD77QPU6J3JH57JWT6D37AYET4MGOAAC27DXJ2J2JPJI2O7KK6H52YXDD7DP5LKJP37RZY2T2NX66NUCTJQ5SDW5Z3C555NPQOFYUEDE3HSK3J4ZZVRIEMUQDRSXVDA3I35J52WMDCWDCBVGPJLFNT6KNNXJKIDHIRWB25GXUUJV6TGQJQG5VRZT6LIYUGKCIHQYEWBTIWWGLVVHVZFGSXPIIVCM2VDY2ZPWKJG2PGMMQCC5F4QWTZW5O3VRBTZEX63JWY4KOYOGAMTD4QP5PZMTYI";        // signed sample: invoice 10628
-const TAMPERED = "AEA4SP4JUDAVIZFTCJEORDNYJYIDISXKQF6BIR7BI2EE6ILE66PJE235MX3DV2GMGB2SOGE2RPGMCFWRJZDE3SS7ZZMIZ5ECAMH3MPPZAR4NUXORYFHMGMAMA3QDWT6BBNSLFHJYNGH5KNWY2DLJM5KURDNYI5TCRABQQ4PQYPRTRW5EJ27VIJNJX45ESV6SRZVZE5J3BJBKISQIFA5KQHKRDEROKYL37S47OIBPYNBHUBAGVYUFIMTUFYLQOTBSO6AICZDXPD77QPU6J3JH57JWT6D37AYET4MGOAAC27DXJ2J2JPJI2O7KK6H52YXDD7DP5LKJP37RZY2T2NX66NUCTJQ5SDW5Z3C555NPQOFYUEDE3HSK3J4ZZVRIEMUQDRSXVDA3I35J52WMDCWDCBVGPJLFNT6KNNXJKIDHIRWB25GXUUJV6TGQJQG5VRZT6LIYUGKCIHQYEWBTIWWGLVVHVZFGSXPIIVCM2VDY2ZPWKJG2PGMMQCC5F4QWTZW5O3VRBTZEX63JWY4KOYOGAMTD4QP5XTMTYQ";  // same signature, due date edited afterwards
+const VIEWER_VERSION = "2026-10-27.6";
+const DEMO = "AEAWHQMQWDMI65RAMORF2EHF6VUAJKLPEFGYXUX2BO246KJE43VFIB2QOUFNYGSV5LYS2R7QA6HBCCVLFYKOE4ZNWL7JSAF3S7YTTI3PBN4NUXORYFVMGMAMA3QPXHTCF7QCEKMWTUOEGW3IUFGUFUTG5WYYZHWWWHB4NWCBB47VS3QKFE7QJW6RC7M44RU2OFF3E3KGIEEFICQBAUDZKI6KIOCDI3FOH6XQLSDRLBEYPQGAEX4VFBWWUVRI6UMWB3IJH5EX66H6727NE3G5O375PH43XCBPELRQEQHA6GMC6PLGKHVP5PA5PW3TTVNLW7QXYXGHEKHIO7RXDZVOSXTWQKNGDXIMNXXUFZ522PQIEMQELHLWT43RMGZRAIIPERCZSHXERGI35JZKGEDGXDM6VFNOJVN3FI2M6SUQCMRLMDV257OISJ7DGVZYH5XRQSFGBRIMHYRT6IOWZQIWXGPVVHFFYWTFHKE2BGMLQL2WOGIJOYPCMMSCR5FYRGTFXPPTXRB3JGX63ZUYQIOQPGGMDD4QP2FHSTXQ";        // signed sample: invoice 10628
+const TAMPERED = "AEAWHQMQWDMI65RAMORF2EHF6VUAJKLPEFGYXUX2BO246KJE43VFIB2QOUFNYGSV5LYS2R7QA6HBCCVLFYKOE4ZNWL7JSAF3S7YTTI3PBN4NUXORYFVMGMAMA3QPXHTCF7QCEKMWTUOEGW3IUFGUFUTG5WYYZHWWWHB4NWCBB47VS3QKFE7QJW6RC7M44RU2OFF3E3KGIEEFICQBAUDZKI6KIOSDI3FOH6XQLSDRLBEYPQGAEX4VFBWWUVRI6UMWB3IJH5EX66H6727NE3G5O375PH43XCBPELRQEQHA6GMC6PLGKHVP5PA5PW3TTVNLW7QXYXGHEKHIO7RXDZVOSXTWQKNGDXIMNXXUFZ522PQIEMQELHLWT43RMGZRAIIPERCZSHXERGI35JZKGEDGXDM6VFNOJVN3FI2M6SUQCMRLMDV257OISJ7DGVZYH5XRQSFGBRIMHYRT6IOWZQIWXGPVVHFFYWTFHKE2BGMLQL2WOGIJOYPCMMSCR5FYRGTFXPPTXRB3JGX63ZUYQIOQPGGMDD4QP3ETSTYQ";  // same signature, due date edited afterwards
 // Public signing keys by key id. Revoke by setting status: "revoked"; never delete an id.
 const KEYS = { 1: { pub: "mkqqCLe6phijwBMOGWy/2RXt/5cSij1RzC10sAaeDyc=", status: "active", note: "DEMO key, replace before production" } };
 const DOMAIN = new TextEncoder().encode("NVI1-SIG\0");
@@ -181,10 +181,11 @@ function parse(text){
   const [ , ver, type, number, date, due, terms, ccy, po, so, account, customer, supplier,
           subtotal, freight, tax, total, paid, balance, count] = h;
   const blankShip = {name:"", line1:"", line2:"", city:"", state:"", zip:"", country:""};
-  let ship = blankShip, csvsha = "", lines;
+  let ship = blankShip, csvsha = "", channels = "", lines;
   if (ver === "NVI2") {
     // Compact: identifiers, quantities, money. Descriptions/specs/ship-to live in the attached CSV.
     csvsha = h[20] || "";
+    channels = h[21] ?? "P";
     lines = rows.filter(r => r[0] === "L").map(r => ({
       ln:r[1], po_line:r[2], part:r[3], desc:"", spec:"", qty:r[4], uom:r[5], price:r[6], amount:r[7],
       ordered:r[8] ?? r[4], prev:r[9] ?? "0", bo:r[10] ?? "0", bo_date:r[11] || "" }));
@@ -195,7 +196,7 @@ function parse(text){
       ln:r[1], po_line:r[2], part:r[3], desc:r[4], spec:r[5], qty:r[6], uom:r[7], price:r[8], amount:r[9],
       ordered: r[10] ?? r[6], prev: r[11] ?? "0", bo: r[12] ?? "0", bo_date: r[13] || "" }));
   }
-  return {ship,csvsha,detail:ver==="NVI1",ver,type,number,date,due,terms,ccy,po,so,account,customer,supplier,subtotal,freight,tax,total,paid,balance,count:+count,lines,raw:text};
+  return {ship,csvsha,channels,detail:ver==="NVI1",ver,type,number,date,due,terms,ccy,po,so,account,customer,supplier,subtotal,freight,tax,total,paid,balance,count:+count,lines,raw:text};
 }
 // Minimal RFC 4180 reader for the attached CSV
 function readCsv(text){
@@ -300,7 +301,7 @@ function render(d){
     ${d.detail ? `<div class="label">Full invoice data</div>
     <p class="ok-line"><b>✓</b> This file matches the invoice exactly. Line descriptions and the ship-to address are now shown above.</p>`
       : `<div class="label">Want the full line detail?</div>
-    <p>This page shows quantities and prices. Part descriptions, specs and the ship-to address are in the invoice's data file, <b class="mono">invoice_${esc(d.number)}.csv</b>. It came attached to the invoice email and is also built into the PDF.</p>
+    <p>This page shows quantities and prices. Part descriptions, specs and the ship-to address are in the invoice's data file, <b class="mono">invoice_${esc(d.number)}.csv</b>. ${{P:"It is built into the invoice PDF.", E:"It came attached to the invoice email.", PE:"It came attached to the invoice email and is also built into the PDF."}[d.channels] || ""} Printed or re-saved copies of the PDF don't include it.</p>
     <p>Choose that file to see the full detail here and confirm it hasn't been changed.</p>
     <label class="file"><input id="csvfile" type="file" accept=".csv,text/csv"><span>Choose invoice_${esc(d.number)}.csv</span></label>
     <div class="err" id="csverr" role="status"></div>`}
@@ -334,7 +335,7 @@ function render(d){
     const f = fi.files[0]; if (!f) return;
     const bytes = new Uint8Array(await f.arrayBuffer());
     if (await digest128(bytes) !== d.csvsha){
-      $("#csverr").textContent = "That file doesn't match this invoice. It was changed, or it's for a different invoice. Don't import it.";
+      $("#csverr").textContent = "That file doesn't match this invoice. It was changed, or it's for a different invoice. If you opened and saved it in Excel, that changes the file: use the original from the email or PDF.";
       return;
     }
     const rowsIn = readCsv(new TextDecoder("utf-8").decode(bytes).replace(/^\ufeff/, ""));
