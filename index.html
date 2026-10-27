@@ -146,7 +146,7 @@ pre{margin:10px 0 0;padding:10px;background:var(--bg);border-radius:5px;overflow
 
 <script src="nacl-fast.min.js"></script>
 <script>
-const VIEWER_VERSION = "2026-10-27.3";
+const VIEWER_VERSION = "2026-10-27.5";
 const DEMO = "AEA4SP4JUDAVIZFTCJEORDNYJYIDISXKQF6BIR7BI2EE6ILE66PJE235MX3DV2GMGB2SOGE2RPGMCFWRJZDE3SS7ZZMIZ5ECAMH3MPPZAR4NUXORYFHMGMAMA3QDWT6BBNSLFHJYNGH5KNWY2DLJM5KURDNYI5TCRABQQ4PQYPRTRW5EJ27VIJNJX45ESV6SRZVZE5J3BJBKISQIFA5KQHKRDEROIYL37S47OIBPYNBHUBAGVYUFIMTUFYLQOTBSO6AICZDXPD77QPU6J3JH57JWT6D37AYET4MGOAAC27DXJ2J2JPJI2O7KK6H52YXDD7DP5LKJP37RZY2T2NX66NUCTJQ5SDW5Z3C555NPQOFYUEDE3HSK3J4ZZVRIEMUQDRSXVDA3I35J52WMDCWDCBVGPJLFNT6KNNXJKIDHIRWB25GXUUJV6TGQJQG5VRZT6LIYUGKCIHQYEWBTIWWGLVVHVZFGSXPIIVCM2VDY2ZPWKJG2PGMMQCC5F4QWTZW5O3VRBTZEX63JWY4KOYOGAMTD4QP5PZMTYI";        // signed sample: invoice 10628
 const TAMPERED = "AEA4SP4JUDAVIZFTCJEORDNYJYIDISXKQF6BIR7BI2EE6ILE66PJE235MX3DV2GMGB2SOGE2RPGMCFWRJZDE3SS7ZZMIZ5ECAMH3MPPZAR4NUXORYFHMGMAMA3QDWT6BBNSLFHJYNGH5KNWY2DLJM5KURDNYI5TCRABQQ4PQYPRTRW5EJ27VIJNJX45ESV6SRZVZE5J3BJBKISQIFA5KQHKRDEROKYL37S47OIBPYNBHUBAGVYUFIMTUFYLQOTBSO6AICZDXPD77QPU6J3JH57JWT6D37AYET4MGOAAC27DXJ2J2JPJI2O7KK6H52YXDD7DP5LKJP37RZY2T2NX66NUCTJQ5SDW5Z3C555NPQOFYUEDE3HSK3J4ZZVRIEMUQDRSXVDA3I35J52WMDCWDCBVGPJLFNT6KNNXJKIDHIRWB25GXUUJV6TGQJQG5VRZT6LIYUGKCIHQYEWBTIWWGLVVHVZFGSXPIIVCM2VDY2ZPWKJG2PGMMQCC5F4QWTZW5O3VRBTZEX63JWY4KOYOGAMTD4QP5XTMTYQ";  // same signature, due date edited afterwards
 // Public signing keys by key id. Revoke by setting status: "revoked"; never delete an id.
@@ -297,10 +297,12 @@ function render(d){
   </section>
 
   ${d.csvsha ? `<section class="csvchk">
-    <div class="label">${d.detail ? "Full detail verified" : "Descriptions, specs and ship-to"}</div>
-    ${d.detail ? `<p class="ok-line"><b>✓</b> This CSV matches the signed code exactly. Download or copy it below.</p>`
-      : `<p>The full data file is attached inside the invoice PDF ("CSV attached" next to the QR). Open the PDF in Adobe Acrobat Reader or Firefox to save it, or use the copy that came with the invoice email. Load it here to confirm it is genuine and show the full detail.</p>
-    <label class="file"><input id="csvfile" type="file" accept=".csv,text/csv"><span>Check attached CSV</span></label>
+    ${d.detail ? `<div class="label">Full invoice data</div>
+    <p class="ok-line"><b>✓</b> This file matches the invoice exactly. Line descriptions and the ship-to address are now shown above.</p>`
+      : `<div class="label">Want the full line detail?</div>
+    <p>This page shows quantities and prices. Part descriptions, specs and the ship-to address are in the invoice's data file, <b class="mono">invoice_${esc(d.number)}.csv</b>. It came attached to the invoice email and is also built into the PDF.</p>
+    <p>Choose that file to see the full detail here and confirm it hasn't been changed.</p>
+    <label class="file"><input id="csvfile" type="file" accept=".csv,text/csv"><span>Choose invoice_${esc(d.number)}.csv</span></label>
     <div class="err" id="csverr" role="status"></div>`}
   </section>` : ""}
 
@@ -332,7 +334,7 @@ function render(d){
     const f = fi.files[0]; if (!f) return;
     const bytes = new Uint8Array(await f.arrayBuffer());
     if (await digest128(bytes) !== d.csvsha){
-      $("#csverr").textContent = "This CSV does not match the signed invoice. It was edited, or it belongs to a different invoice. Do not use it.";
+      $("#csverr").textContent = "That file doesn't match this invoice. It was changed, or it's for a different invoice. Don't import it.";
       return;
     }
     const rowsIn = readCsv(new TextDecoder("utf-8").decode(bytes).replace(/^\ufeff/, ""));
