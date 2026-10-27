@@ -89,6 +89,8 @@ section{background:var(--card);border:1px solid var(--rule);border-radius:6px;pa
 .ln .math{grid-column:1/-1;color:var(--ink-3);font-size:13px}
 .ln .po{color:var(--ink-3);font-family:var(--sans);font-weight:500;font-size:12px;margin-left:6px}
 
+.pship{font-size:13px;color:var(--ink);background:var(--warn-bg);border-left:4px solid var(--warn);padding:8px 10px;border-radius:3px;margin:4px 0 6px}
+.ln .bo{grid-column:1/-1;color:var(--warn);font-size:13px;font-weight:600}
 .tot table{width:100%;border-collapse:collapse}
 .tot td{padding:4px 0}
 .tot td:first-child{color:var(--ink-2)}
@@ -139,8 +141,8 @@ pre{margin:10px 0 0;padding:10px;background:var(--bg);border-radius:5px;overflow
 
 <script src="nacl-fast.min.js"></script>
 <script>
-const DEMO = "AEAS24WBGNZ33JMH7TCDPTL27PYQB6FEBPCS44OSGG6ULEPHRN7YXRITPOEW5ZRC5SHMRKZKXIJDN5OAT7OGDNVMMENZF5FAHXVFG7HHAZ4NVLMT3VXIEMAUQDX7OFD5ACV2OB225ASUDN4ZJQSLF2LOKFM3EDGERBYVXUUH34URAN4MOFFWMTQC7XS7XTVBXU35C7BMZQ4JUGYBBJ6YHAEKQPTIQTKTQBWUNWM6HFQJ5EVBRECUREB6XK7ETJW4FZ3IKZ2CB3BEKM2LK5XVLFXHEYVA6QMRP2SMM5J4FH5AABUOR7XNBMPH3U6BQQMRRSRGIOXDFLTPC46CCXGSJWNGFJ3WZFJO6OGKKVPV3FRSUZAIYHRM5REPUABGXKLCWYX5S5ZXUFCQB3DFJ6EZSULA2PZSZRV6FWMGRFHCBEG76QODQ2DNVURE2Q4QSV5CNZQA5RJJ5QJKXR6KIO3CXST4TWWX7YISW3DZMOOV724MOCDJGVINMNNGCK3STOYULUFQDV6RCDIHR3FS6UHQXV22HCVLNEHAWYLJFITLEGXSGIOPHA2ILUD66M7XJK5AFC5AVDV4VTYAPPBDNP6PXAB6WGW6QAWVNBKR6BMJ3CRD3CTQHKMXAIK2GJGYOZKROTAEF4HN5OTJH6OQ6G25MA2URNN5UGSZPRTSRCKIAHHB4B5MV6AEIVI7A6INQB7YAILK4IWA";        // signed sample: invoice 10628
-const TAMPERED = "AEAS24WBGNZ33JMH7TCDPTL27PYQB6FEBPCS44OSGG6ULEPHRN7YXRITPOEW5ZRC5SHMRKZKXIJDN5OAT7OGDNVMMENZF5FAHXVFG7HHAZ4NVLMT3NXIEQAQIDP7WFP3AGXM4DHMAKHUM3LLKKIURK35IWSUSUYQEPDLNSL6PRTYDWDCRRWVEMYJ5SKXGZWYXU36C7EMMYOM4DMCE3PRBEEWCBEKFOUJMSNWDOQXB2MKO6DIEICALSRH2437CVG2YUXHUZRAAFOTFM3E6VLKMWLGYLRNBT4TR7CLRDVHWAFWBYHYNAHR2666ZWBUDDTYCTDNHGOUSGGJ4Y5JPETE4N3FWEJ2WZEZUURCTS6PR3IAGQOQL7OJT2ARORPSF4D2WEX4I5ZX4ZCQBYTFZ6EZSUO7U3TVTDD5LMYNGOGFCMNP3A2GGWGQES2TKDSYJLVCUCDDSHFHWBF2ZDRIB3US4L5SOW5P5BOL3CHFQZS47PRR5A6KNKIKU2WMEVXFE5RZ3ILARV6RICUD25XJ7KDYK2ZNDROVSKDQDMF4LUNWKDLZCUDHDTVEEBD67U7YERSBOO2BKHDVLHQQ66CHKX4POHT7MJN7EBNK2C5DUCUKVBAXWHED5FSCEEI3GJHQ7CR4N6ARDZPWOXJ4U7HI7BARB5CIF5XHS23I6GW2CODEAU4HWHFIXIBIU5DVDRAFCF7ABMPGEIWC";  // same signature, due date edited afterwards
+const DEMO = "AEA4OEHKZRHANMI6FAAMK5YMZSD7YCZ3EQFHC6HTW3CSY7WAPLSLMDNHY4CS3FETTZA6JAKJHPFBUDUL5CPZL3Z7EMT6YKBDCO3XXIRQA54NVLMT3NHMGMAMQ3XXTCR4YABI4G5H5XSTJDQSOQKYLQLNMFCUE5AUVUJQPSIPR6J3AQIRAISNAL5VZ2U76Z6XHHSGE5TE7CUJRMIBQ4MSHIGTSBV4IGA26BQ5DLCUAJ6F53LSNGAIAMVUDFLVH3JXLOJ7EREDWHEKP5PVLXP3ILIX3XRXQUJ725WJHFGMGYAMHZRRTTNIZUVNMM3KE2VPVCTKPWUVXK6KZNETSWVLT353UW5K5L62I3KX37ZSKJXKEEGGC4DVZHUBDN5UUV5KKWT55B4VNQBFANZLJGGPPRR6XXKNX6BXYSAL3RCVKL66JCT7ODC6RCVZO4SQROIZJOMPWQDG35GBHULH2PXTYR5KPNWJNC5OTU37GH74YV7KJLS27ELZWM3MZDRSBBOUUXSLCBFUU2Y2EIMNQH74CMIQPGLM37ADRX2TJCILCQCDNUWYGUGYTBRU6Q7TB5AFJMWEZHSFQQ6CFLKJTRUEREWQ64SL7ICIFBIDZ3OIE4PHVOLHQHAIKTRBYRAIBG7OJRCZH2OJRE3ONDKASYT52YRRAAYEMP643YHQVMM3MR4Z535AXPMJPI4FY4MEYVMFUDAJPXMC4HDBBOWQFVABREAC2EV2OCZVKA";        // signed sample: invoice 10628
+const TAMPERED = "AEA4OEHKZRHANMI6FAAMK5YMZSD7YCZ3EQFHC6HTW3CSY7WAPLSLMDNHY4CS3FETTZA6JAKJHPFBUDUL5CPZL3Z7EMT6YKBDCO3XXIRQA54NVLMT3VHNWQAQQXXXTCT5QBWJSGPPVTW4WKGQC2UTQENGQFNSO4NFVIHEM4KELNUR5HWZLWJNMCCRUSRCHWNTP47N7DDHH5F3LPCAXGUJNAXAVEIAF4QWJJFZIQVECBLO3XTEEBP6WM2ZEAYHAQNOSB5G5Q3GQ644YLFAEO4WVVR7Q23OXJHKD6TNXZSXEMXMWGJ7AAEBYH7DVHRSQP7ZEKUKVT5LPJ7GL7OCFZXGX23VUVXO7BT6M7LM3KTLJUZQZPZHY3HQZQPU42JSZLWBJ4WYF3RX7PPPYGOWXIE4A7G3NNRHEPQN5HS4CJV4EECRFJFOTLVDGV72B5LUVLSUAZLYNGA3HKTDEBB27NSJVKM6TO7OMOJR7VB3XW7W3WTN37GDL7WSOZWV5G7TRHQR4SAEGHCT26JKOEXQQHDKTRRUBDXYHA4QPB3O3ZRPDILWQMQ7FEMFZITRA4NFNDLJ7B6WB6AFSZKJRMSIBBSUEOUQPDKZQJHD25E54QEROGSPQ6NKT64B75E6IUBB6O4FRERACHN3GNL43ZUXS4LPDCKAS5T725R3AJALJ56755DIKOGLRKZCYT6J356NJI2VYAME3VMVULAIXXKC6HDDB6OYFXABJEJC2ER26KZVKI";  // same signature, due date edited afterwards
 // Public signing keys by key id. Revoke by setting status: "revoked"; never delete an id.
 const KEYS = { 1: { pub: "mkqqCLe6phijwBMOGWy/2RXt/5cSij1RzC10sAaeDyc=", status: "active", note: "DEMO key, replace before production" } };
 const DOMAIN = new TextEncoder().encode("NVI1-SIG\0");
@@ -173,7 +175,9 @@ function parse(text){
   const [ , ver, type, number, date, due, terms, ccy, po, so, account, customer, supplier,
           subtotal, freight, tax, total, paid, balance, count] = h;
   const lines = rows.filter(r => r[0] === "L").map(r => ({
-    ln:r[1], po_line:r[2], part:r[3], desc:r[4], spec:r[5], qty:r[6], uom:r[7], price:r[8], amount:r[9] }));
+    ln:r[1], po_line:r[2], part:r[3], desc:r[4], spec:r[5], qty:r[6], uom:r[7], price:r[8], amount:r[9],
+    // optional partial-shipment fields; absent on older codes
+    ordered: r[10] ?? r[6], prev: r[11] ?? "0", bo: r[12] ?? "0", bo_date: r[13] || "" }));
   return {ver,type,number,date,due,terms,ccy,po,so,account,customer,supplier,subtotal,freight,tax,total,paid,balance,count:+count,lines,raw:text};
 }
 function checks(d){
@@ -195,9 +199,9 @@ function status(d){
 }
 function csv(d){
   const q = v => /[",\n]/.test(v) ? `"${String(v).replace(/"/g,'""')}"` : v;
-  const head = ["invoice","po","po_line","part","description","spec","qty","uom","unit_price","amount"];
+  const head = ["invoice","po","po_line","part","description","spec","qty_billed","uom","unit_price","amount","qty_ordered","qty_prev_shipped","qty_backorder","backorder_est_ship"];
   return [head.join(",")].concat(d.lines.map(l =>
-    [d.number,d.po,l.po_line,l.part,l.desc,l.spec,l.qty,l.uom,l.price,l.amount].map(q).join(","))).join("\n");
+    [d.number,d.po,l.po_line,l.part,l.desc,l.spec,l.qty,l.uom,l.price,l.amount,l.ordered,l.prev,l.bo,l.bo_date].map(q).join(","))).join("\n");
 }
 async function copy(text, msg){
   const t = $("#toast");
@@ -207,6 +211,8 @@ async function copy(text, msg){
 }
 function render(d){
   const [sk, sl] = status(d); const ck = checks(d); const allOk = ck.every(c => c[0]);
+  const boUnits = d.lines.reduce((a,l) => a + (+l.bo || 0), 0);
+  const boValue = d.lines.reduce((a,l) => a + Math.round((+l.bo || 0) * cents(l.price)), 0);
   const tr = d.trust;
   $("#view").innerHTML = `
   <div class="wrap" style="max-width:none">
@@ -235,13 +241,15 @@ function render(d){
 
   <section class="lines">
     <h2 class="label">${d.lines.length} line items</h2>
+    ${boUnits ? `<div class="pship"><b>Partial shipment.</b> This invoice bills only what shipped. <b>${boUnits} unit${boUnits===1?"":"s"} (${usd(boValue/100)}) on backorder</b>, not billed here.</div>` : ""}
     <div class="ln-list">${d.lines.map(l => `
       <div class="ln">
         <div class="pn">${esc(l.part)}${l.po_line ? `<span class="po">PO ln ${esc(l.po_line)}</span>` : ""}</div>
         <div class="amt num">${fmt(l.amount)}</div>
         <div class="ds">${esc(l.desc)}</div>
         ${l.spec ? `<div class="sp">${esc(l.spec)}</div>` : ""}
-        <div class="math num" style="text-align:left">${esc(l.qty)} ${esc(l.uom)} × ${fmt(l.price)}</div>
+        <div class="math num" style="text-align:left">${+l.ordered !== +l.qty || +l.prev ? `${esc(l.qty)} of ${esc(l.ordered)} ${esc(l.uom)} billed` : `${esc(l.qty)} ${esc(l.uom)}`} × ${fmt(l.price)}</div>
+        ${+l.bo ? `<div class="bo">${esc(l.bo)} on backorder${l.bo_date ? ` · est. ship ${usdate(l.bo_date)}` : ""}</div>` : ""}
       </div>`).join("")}</div>
   </section>
 
