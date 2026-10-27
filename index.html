@@ -141,11 +141,12 @@ pre{margin:10px 0 0;padding:10px;background:var(--bg);border-radius:5px;overflow
       <div class="err" id="perr"></div>
     </details>
   </section>
-  <p class="foot">All data shown is carried in the scanned link and checked against NovAmaxa's published signing key. Nothing is fetched from a server.</p>
+  <p class="foot">Viewer <span id="vv"></span>. All data shown is carried in the scanned link and checked against NovAmaxa's published signing key. Nothing is fetched from a server.</p>
 </div>
 
 <script src="nacl-fast.min.js"></script>
 <script>
+const VIEWER_VERSION = "2026-10-27.3";
 const DEMO = "AEA77KQ2Y2DIA4MJGKRMRWDLCITMGBDEZV7655YPG3VCFYHWPPR7NBKRKNUAXTXQHBLO5WJ5M2GHC3ZL6E62FGV64ZIZAGFPMXXMJEFUBZ4NUXORYFHMGMAMA3QDWT6BBNSLFXJYNGH2GG3CYC5KUUOLVYJ5VCJBBYQMJQIPR7RWZEZ27VJJLJH65ISH3ETO3KIGZOSJCABNKQSAYFA6HCGKCAQQ7O7DZ56QKMVGSX2AQDC4SOXSL3K4F33BRJLVQCPGIOF4P56B6TZH5G7H5F47Q67YH6BKGIXAABFOR745E5IW4USU2QZ3RVWUVYJB6R65ZD6D4PZ6VLO2V3XV4BJVNHO2LXPAILX7U7LSIEIYFLEXPHVXCYNTCCQQYJCHTEPOHBURX2TSMMYGNOGJ5KKZSTK3HKRUW5FJAMZCWYHLV26SREX4M27GA3W6GGKVYGFBS7CB72BFQM2HVRS5NJ5JJNUVH2CFATGVYVFMX7FERMHTGCIRDOS6ILKLJO7N2YQZ4SL6NU34OFHMHDAGJRWIH5FMZFAP";        // signed sample: invoice 10628
 const TAMPERED = "AEA77KQ2Y2DIA4MJGKRMRWDLCITMGBDEZV7655YPG3VCFYHWPPR7NBKRKNUAXTXQHBLO5WJ5M2GHC3ZL6E62FGV64ZIZAGFPMXXMJEFUBZ4NUXORYFHMGMAMA3QDWT6BBNSLFXJYNGH2GG3CYC5KUUOLVYJ5VCJBBYQMJQIPR7RWZEZ27VJJLJH65ISH3ETO3KIGZOSJCABNKQSAYFA6HCGKCAUQ7O7DZ56QKMVGSX2AQDC4SOXSL3K4F33BRJLVQCPGIOF4P56B6TZH5G7H5F47Q67YH6BKGIXAABFOR745E5IW4USU2QZ3RVWUVYJB6R65ZD6D4PZ6VLO2V3XV4BJVNHO2LXPAILX7U7LSIEIYFLEXPHVXCYNTCCQQYJCHTEPOHBURX2TSMMYGNOGJ5KKZSTK3HKRUW5FJAMZCWYHLV26SREX4M27GA3W6GGKVYGFBS7CB72BFQM2HVRS5NJ5JJNUVH2CFATGVYVFMX7FERMHTGCIRDOS6ILKLJO7N2YQZ4SL6NU34OFHMHDAGJRWIH5HLJFAR";  // same signature, due date edited afterwards
 // Public signing keys by key id. Revoke by setting status: "revoked"; never delete an id.
@@ -388,7 +389,18 @@ async function load(blob, fromQr){
 }
 async function boot(){
   const h = location.hash.slice(1);
-  try { if (h.length > 20) { await load(h, true); return; } } catch(e) { /* fall through to sample */ }
+  // A scanned code that fails to decode must never fall back to the sample: that would show a different invoice.
+  if (h.length > 20) {
+    try { await load(h, true); }
+    catch(e) {
+      const s = $("#src"); s.className = "src demo"; s.textContent = "Could not read scan";
+      $("#view").innerHTML = `<section class="trust bad" role="alert"><span class="ic" aria-hidden="true">!</span>
+        <div><h2>This code could not be read</h2><p>It may be damaged, cut off, or made for a newer version of this page.
+        Reload the page and scan again. If it still fails, confirm the invoice with NovAmaxa AR using contact details you already have on file.</p>
+        <p class="mono" style="font-size:11px;margin-top:6px">${esc(e.message)} · viewer ${VIEWER_VERSION}</p></div></section>`;
+    }
+    return;
+  }
   try { await load(DEMO, false); } catch(e) { $("#view").innerHTML = `<section class="err">${esc(e.message)}</section>`; }
 }
 $("#s-good").onclick = async () => { await load(DEMO, false); $("#dec").open = false; scrollTo({top:0,behavior:"smooth"}); };
@@ -399,6 +411,7 @@ $("#go").onclick = async () => {
   catch(e){ $("#perr").textContent = "Could not decode that. Paste the full link from the scan, starting with https://. " + (e.message.includes("NVI1") ? e.message : ""); }
 };
 addEventListener("hashchange", boot);
+document.getElementById("vv").textContent = VIEWER_VERSION;
 boot();
 </script>
 
